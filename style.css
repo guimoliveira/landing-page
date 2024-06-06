@@ -42,7 +42,7 @@ h3 {
     color: var(--color-4);
 }
 
-a, button {
+a {
     padding: 10px;
     border: 5px solid var(--color-4);
     color: var(--color-4);
@@ -59,23 +59,23 @@ a, button {
     cursor: pointer;
 }
 
-a:hover, button:hover {
+a:hover {
     color: var(--color-5);
     border-color: var(--color-5);
 }
 
-a:active, button:active {
+a:active {
     color: var(--color-4);
     border-color: var(--color-4);
 }
 
-form {
-    margin-top: 50px;
+.contact {
+    margin-top: 60px;
 }
 
-form * {
+.contact *:not(a) {
     display: block;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 input, textarea {
@@ -100,7 +100,7 @@ header {
 footer {
     width: 100%;
     padding-top: 8vh;
-    padding-bottom: 12vh;
+    padding-bottom: 13vh;
 }
 
 footer p {
@@ -170,7 +170,7 @@ section.tertiary h5 {
 }
 
 .container {
-    width: 100vw;
+    width: 100%;
     min-width: 250px;
     max-width: 960px;
     margin: auto;

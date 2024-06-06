@@ -152,6 +152,12 @@ fetchGameJoltGames((games) => {
     items.innerHTML = html;
 });
 
+function updateEmailAddress() {
+    document.getElementById('sendEmail').href = 'mailto:guimoliveira@gmail.com?subject=' + 
+                            encodeURIComponent(document.getElementById('emailSubject').value) + 
+                            '&body=' + encodeURIComponent(document.getElementById('emailBody').value);
+}
+
 function animateSections() {
     const y = window.scrollY;
     const h = window.innerHeight;

@@ -56,11 +56,13 @@
         <div class="container">
             <h1>Contact</h1>
             <h5>Feel free to ask anything!</h5>
-            <form action="mailto:guimoliveira01@gmail.com" method="GET">
-                <input type="text" name="subject" placeholder="Subject" aria-label="Subject" size="40" required>
-                <textarea name="body" placeholder="Message" aria-label="Message" rows="5" cols="60" required></textarea>
-                <button>Send</button>
-            </form>
+
+            <div class="contact">
+                <input type="text" id="emailSubject" placeholder="Subject" aria-label="Subject" size="40" onkeyup="updateEmailAddress();">
+                <textarea id="emailBody" placeholder="Message" aria-label="Message" rows="5" cols="60" onkeyup="updateEmailAddress();"></textarea>
+                <a href="mailto:guimoliveira01@gmail.com" id="sendEmail">Send</a>
+            </div>
+
             <p class="float-right">Guilherme Marcelino - RS, Brazil</p>
         </div>
     </footer>
