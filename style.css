@@ -99,8 +99,14 @@ header {
 
 footer {
     width: 100%;
-    min-height: 100vh;
     padding-top: 8vh;
+    padding-bottom: 12vh;
+}
+
+footer p {
+    text-shadow: none;
+    font-size: .7em;
+    margin-top: 40px;
 }
 
 section {
@@ -249,6 +255,10 @@ section.tertiary .container {
 
 .hide {
     display: none;
+}
+
+.float-right {
+    float: right;
 }
 
 @media only screen and (max-width: 500px) {
