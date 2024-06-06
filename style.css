@@ -103,6 +103,12 @@ footer {
     padding-top: 8vh;
 }
 
+footer p {
+    text-shadow: none;
+    font-size: .7em;
+    margin-top: 35px;
+}
+
 section {
     position: relative;
     width: 100%;
@@ -240,6 +246,10 @@ section.tertiary .container {
 
 .hide {
     display: none;
+}
+
+.float-right {
+    float: right;
 }
 
 @media only screen and (max-width: 500px) {
