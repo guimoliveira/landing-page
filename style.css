@@ -201,9 +201,18 @@ section.tertiary .container {
     transform: scale(1.05);
 }
 
+.box span {
+    font-size: .7em;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 100%;
+}
+
 .box p, .img-box span {
     color: var(--color-2);
-    font-size: .5em;
+    font-size: .6em;
     text-shadow: none;
     margin-top: 10px;
 }

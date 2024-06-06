@@ -1,15 +1,15 @@
 const PROXY_URL = 'https://corsproxy.io/?';
-const GITHUB_REPOS_URL = 'https://github.com/guimoliveira?tab=repositories';
+const GITHUB_REPOS_URL = 'https://github.com/guimoliveira?tab=repositories&t=';
 const GITHUB_URL = 'https://github.com/guimoliveira/';
-const ITCH_IO_URL = 'https://guimoliveira.itch.io/';
-const GAME_JOLT_API_URL = 'https://gamejolt.com/site-api/web/library/games/developer/@guimoliveira?section=featured';
+const ITCH_IO_URL = 'https://guimoliveira.itch.io/?t=';
+const GAME_JOLT_API_URL = 'https://gamejolt.com/site-api/web/library/games/developer/@guimoliveira?section=featured&t=';
 const GAME_JOLT_URL = 'https://gamejolt.com/games/';
 
-const TEXT_BOX_HTML = `<a href="link" target="_blank" class="box" title="description"><h5>name</h5><p>description</p></a>`;
+const TEXT_BOX_HTML = `<a href="link" target="_blank" class="box" title="description"><span>name</span><p>description</p></a>`;
 const IMG_BOX_HTML = `<a href="link" target="_blank" class="img-box" style="background: url('icon')" title="description"><span>name</span></a>`;
 
 function generateProxyURL(destination) {
-    return PROXY_URL + encodeURIComponent(destination);
+    return PROXY_URL + encodeURIComponent(destination) + (new Date().getTime());
 }
 
 function request(url, callback) {
@@ -33,18 +33,21 @@ function fetchGitHubRepos(callback) {
             if (index == -1) break;
             const endTitle = index = response.indexOf('</a>', index);
             if (index == -1) break;
+
+            const endBlock = response.indexOf('</li>', index);
+
             const startDescription = index = response.indexOf('itemprop="description">', index);
-            if (index == -1) break;
             const endDescription = index = response.indexOf('</p>', index);
-            if (index == -1) break;
 
             const title = response.substring(startTitle + 18, endTitle).trim();
+            let description = response.substring(startDescription + 23, endDescription).trim();
 
-            repos.push({
-                title,
-                description: response.substring(startDescription + 23, endDescription).trim(),
-                link: GITHUB_URL + title
-            });
+            if (startDescription > endBlock) {
+                description = '';
+                index = endBlock;
+            }
+
+            repos.push({title, description, link: GITHUB_URL + title});
         }
 
         callback(repos);
